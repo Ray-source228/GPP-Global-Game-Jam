@@ -37,7 +37,6 @@ function mostrar() {
         s.hidden = !esActiva;
         if (esActiva) {
             s.classList.toggle("desde-izq", haciaIzquierda);
-            // Reinicia la animación en cada cambio
             s.style.animation = "none";
             void s.offsetWidth;
             s.style.animation = "";
@@ -72,13 +71,44 @@ function crearTarjeta(j) {
     const card = crear("article", "juego");
 
     const portada = crear("div", "portada");
-    if (j.img) {
-        const img = document.createElement("img");
-        img.src = j.img; img.alt = j.titulo; img.loading = "lazy";
-        portada.append(img);
-    } else {
-        portada.append(crear("span", "", j.titulo.charAt(0).toUpperCase()));
-    }
+    const LOGO_GGJ_OFICIAL = "data:image/svg+xml," + encodeURIComponent(
+        `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225">
+            <rect width="400" height="225" fill="#2d2654"/>
+            <circle cx="200" cy="78" r="56" fill="none" stroke="#452b63" stroke-width="14"/>
+            <circle cx="200" cy="78" r="24" fill="#22A9E0"/>
+            <path d="M188 64 c6 2 10 8 8 14 c-2 6 -8 10 -12 8 z M208 68 c5 4 7 12 3 16 c-4 4 -10 2 -11 -4 z" fill="#FFFCFF"/>
+            <ellipse cx="200" cy="78" rx="44" ry="12" fill="none" stroke="#F3EB33" stroke-width="5" transform="rotate(-18 200 78)"/>
+            <text x="200" y="166" text-anchor="middle" fill="#FFFCFF" font-family="Jost, sans-serif" font-weight="600" font-size="30" letter-spacing="2">GLOBAL</text>
+            <text x="200" y="196" text-anchor="middle" fill="#FFFCFF" font-family="Jost, sans-serif" font-weight="400" font-size="22" letter-spacing="5">GAME JAM</text>
+        </svg>`
+    );
+
+    const respaldos = [
+        "GlobalGameJam.png",
+        "GlobalGameJam.PNG",
+        "GlobalGameJam.jpg",
+        "GlobalGameJam.webp",
+        "img/GlobalGameJam.png",
+        LOGO_GGJ_OFICIAL
+    ];
+
+    const img = document.createElement("img");
+    img.src = (j.img && j.img.trim()) ? j.img.trim() : respaldos[0];
+    img.alt = j.titulo;
+    img.loading = "lazy";
+
+    let intento = 0;
+    img.onerror = () => {
+        while (intento < respaldos.length && img.src.endsWith(respaldos[intento])) {
+            intento++;
+        }
+        if (intento < respaldos.length) {
+            img.src = respaldos[intento++];
+        } else {
+            img.onerror = null;
+        }
+    };
+    portada.append(img);
 
     const info = crear("div", "juego-info");
     const creadores = j.Creadores || j.creadores || j.autor || "";
@@ -146,9 +176,8 @@ $("filtros").addEventListener("reset", () => setTimeout(mostrarJuegos, 0));
    ALEATORIO: generador de temas multilingüe + temporizador
    ========================================================== */
 const KEY = "temporizador3h", KEY_TEMA = "temaJuegoV2", DURACION = 3 * 60 * 60 * 1000;
-const CATEGORIAS_BASE = Object.keys(TEMAS_I18N.es); // 6 categorías ordenadas por índice (0..5)
+const CATEGORIAS_BASE = Object.keys(TEMAS_I18N.es);
 
-// temaIndices = [idxCat0, idxCat1, ...] | bloqueadosIdx = { 0: true, 2: false, ... }
 let estado = null, temaIndices = null, bloqueadosIdx = {}, audioCtx = null;
 
 try { estado = JSON.parse(localStorage.getItem(KEY)); } catch (e) {}
@@ -160,7 +189,6 @@ try {
     }
 } catch (e) {}
 
-// Si había un tema guardado con la versión antigua, lo migramos a índices para no perderlo
 if (!temaIndices) {
     try {
         const viejo = JSON.parse(localStorage.getItem("temaJuego"));
@@ -314,18 +342,13 @@ function ponerIdioma(l) {
 
     try { localStorage.setItem("idioma", l); } catch (e) {}
 
-    // Botones activos arriba
     document.querySelectorAll(".idiomas button").forEach(b => b.classList.toggle("activo", b.dataset.lang === l));
-
-    // Bloques largos de la sección Información
     document.querySelectorAll(".idioma").forEach(d => d.hidden = d.dataset.lang !== l);
 
-    // Todos los textos con data-i18n
     document.querySelectorAll("[data-i18n]").forEach(el => {
         el.textContent = t(el.dataset.i18n);
     });
 
-    // Placeholders y tooltips (title / aria-label)
     document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
         el.placeholder = t(el.dataset.i18nPlaceholder);
     });
@@ -335,7 +358,6 @@ function ponerIdioma(l) {
         el.setAttribute("aria-label", texto);
     });
 
-    // Refrescar componentes dinámicos
     cuentaAtras();
     actualizarSelects();
     mostrarJuegos();
