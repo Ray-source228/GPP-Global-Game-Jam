@@ -65,7 +65,7 @@ function cuentaAtras() {
 idCuenta = setInterval(cuentaAtras, 1000);
 
 /* ==========================================================
-   JUEGOS: tarjetas + buscador
+   JUEGOS: tarjetas + buscador + desplegable "Conocer más"
    ========================================================== */
 function crearTarjeta(j) {
     const card = crear("article", "juego");
@@ -118,17 +118,77 @@ function crearTarjeta(j) {
         aut.append(crear("b", "", t("creadores")), document.createTextNode(creadores));
         info.append(aut);
     }
-    info.append(crear("p", "", j.desc));
+
+    const descCorta = crear("p", "desc-corta", j.desc);
+    info.append(descCorta);
 
     const tags = crear("div", "tags");
     (j.tags || []).forEach(tg => tags.append(crear("span", "", tg)));
     info.append(tags);
 
+    // Panel desplegable ("Conocer más")
+    const panelExtra = crear("div", "juego-extra");
+    panelExtra.hidden = true;
+
+    const textoCompleto = crear("p", "desc-completa", j.descCompleta || j.desc);
+    panelExtra.append(textoCompleto);
+
+    // Botones opcionales de Video y Recursos dentro del desplegable
+    if (j.video || j.recursos) {
+        const extraBtns = crear("div", "extra-btns");
+
+        if (j.video) {
+            const btnVideo = crear("a", "btn-extra btn-video", t("video"));
+            btnVideo.href = j.video;
+            btnVideo.target = "_blank";
+            btnVideo.rel = "noopener";
+            extraBtns.append(btnVideo);
+        }
+
+        if (j.recursos) {
+            const btnRecursos = crear("a", "btn-extra btn-recursos", t("recursos"));
+            btnRecursos.href = j.recursos;
+            btnRecursos.target = "_blank";
+            btnRecursos.rel = "noopener";
+            extraBtns.append(btnRecursos);
+        }
+
+        panelExtra.append(extraBtns);
+    }
+
+    info.append(panelExtra);
+
+    // Fila inferior de botones principales: "Jugar" + "Conocer más"
+    const accionesCard = crear("div", "juego-acciones");
+
     if (j.url) {
         const a = crear("a", "jugar", t("jugar"));
-        a.href = j.url; a.target = "_blank"; a.rel = "noopener";
-        info.append(a);
+        a.href = j.url;
+        a.target = "_blank";
+        a.rel = "noopener";
+        accionesCard.append(a);
     }
+
+    const tieneExtra = (j.descCompleta && j.descCompleta !== j.desc) || j.video || j.recursos;
+    if (tieneExtra) {
+        const btnMas = crear("button", "conocer-mas", t("conocer_mas"));
+        btnMas.type = "button";
+        btnMas.setAttribute("aria-expanded", "false");
+        btnMas.onclick = () => {
+            const abrir = panelExtra.hidden;
+            panelExtra.hidden = !abrir;
+            descCorta.hidden = abrir;
+            card.classList.toggle("expandido", abrir);
+            btnMas.setAttribute("aria-expanded", String(abrir));
+            btnMas.textContent = abrir ? t("ocultar_mas") : t("conocer_mas");
+        };
+        accionesCard.append(btnMas);
+    }
+
+    if (accionesCard.children.length > 0) {
+        info.append(accionesCard);
+    }
+
     card.append(portada, info);
     return card;
 }

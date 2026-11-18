@@ -113,6 +113,10 @@ const TRADUCCIONES = {
         cualquiera: "- Cualquiera -",
         creadores: "Creadores: ",
         jugar: "Jugar",
+        conocer_mas: "Conocer más",
+        ocultar_mas: "Mostrar menos",
+        video: "Video",
+        recursos: "Recursos",
         mostrando: (n, total) => `Mostrando ${n} de ${total} juegos`,
         sin_resultados: "Ningún juego coincide con la búsqueda."
     },
@@ -185,6 +189,10 @@ const TRADUCCIONES = {
         cualquiera: "- Qualsevol -",
         creadores: "Creadors: ",
         jugar: "Jugar",
+        conocer_mas: "Conèixer més",
+        ocultar_mas: "Mostrar menys",
+        video: "Vídeo",
+        recursos: "Recursos",
         mostrando: (n, total) => `Mostrant ${n} de ${total} jocs`,
         sin_resultados: "Cap joc coincideix amb la cerca."
     },
@@ -257,6 +265,10 @@ const TRADUCCIONES = {
         cualquiera: "- Any -",
         creadores: "Creators: ",
         jugar: "Play",
+        conocer_mas: "Learn more",
+        ocultar_mas: "Show less",
+        video: "Video",
+        recursos: "Resources",
         mostrando: (n, total) => `Showing ${n} of ${total} games`,
         sin_resultados: "No games match your search."
     }
@@ -265,10 +277,94 @@ const TRADUCCIONES = {
 const FECHA_EVENTO = "Jan 30, 2027 12:00:00";
 
 const JUEGOS = [
-    { titulo: "Valcour Theater", Creadores: "Biel Aparicio Torné, Judith Codina Menea, Laia Tuyà Penas, Levi Barahona Huete, Nathan Collado Brun, Xavier Ferré Contreras", desc: "You have been hired to prepare a stage in a theater that has been closed for years. No one comes anymore, but the work must be done. Your task is to complete a series of stage-preparation duties to get the play ready.", tags: ["3D", "First-Person", "Puzzle"], plataformas: ["MS Windows"], herramientas: ["Unity"], idiomas: ["English"], diversificadores: [], img: "img/ValcourTheater.png", url: "https://globalgamejam.org/games/2026/blank-2" },
-    { titulo: "My waifu wants to be a cosplayer", Creadores: "@marilolifc01, Cloudess, Edalint, THEBOSS, saturnoV18, The_Martina", desc: "A pet simulator mixed with incremental gameplay. Create mask combos to earn points, unlock gacha rewards, and buy amazing cosplays for your waifu! Upgrade your dropper, enhance your masks, and collect the rarest outfits! ✨", tags: ["Casual", "Simulation"], plataformas: ["Android"], herramientas: [], idiomas: ["English"], diversificadores: [], img: "", url: "https://the-martina.itch.io/my-waifu-wants-to-be-a-cosplayer" },
-    { titulo: "Atu's Greed", Creadores: "Heyloler, Jowi, emmabrull, Maxnes, bdragon, Boqueron113, radial, Sh0gun3", desc: "Cast down after a failed coup, Atu is defeated and exiled for attempting to assassinate the leader of his own brotherhood. Branded a traitor by those who once shared his faith, he is discarded into the Pit of the Mangy—left for dead among the forsaken.", tags: ["2D", "Third-Person", "Top-Down"], plataformas: ["MS Windows"], herramientas: ["Unity"], idiomas: ["English"], diversificadores: [], img: "img/AtusGreed.jpg", url: "https://globalgamejam.org/games/2026/atus-greed-0" },
-    { titulo: "Xibalbá: A journey to reincarnation", Creadores: "Criado, JoelGüell, Mixel, brunasca", desc: "Un viaje a la reencarnación donde un niño tiene que pasar por todas las casas de Xibalbá para poder renacer.", tags: [], plataformas: [], herramientas: [], idiomas: [], diversificadores: [], img: "", url: "https://globalgamejam.org/games/2026/xibalba-journey-reincarnation-0" },
-    { titulo: "Maskacre", Creadores: "erinss, Aniol123, aidu_", desc: "En los lujosos bailes de máscaras del siglo XVI, nadie muestra su verdadero rostro… y uno de los invitados es un asesino.", tags: ["2D", "Point-and-Click", "Strategy"], plataformas: ["MS Windows"], herramientas: ["Unity"], idiomas: ["Español", "English"], diversificadores: [], img: "img/Maskacre.png", url: "https://youtu.be/HS4-ANi9b6Y" },
-    { titulo: "One Mask Smells Like Garlic", Creadores: "Antonio Polanc…, juaninside, DMON", desc: "You play as a vampire trying to escape from party alive while blending in behind different masks. Somewhere among the gests hides a vampire hunter, disguised like everyone else, waiting for the perfect moment to strike.", tags: [], plataformas: [], herramientas: [], idiomas: [], diversificadores: [], img: "img/OneMaskSmellsLikeGarlic.png", url: "https://twinstudiosoficial.itch.io/one-mask-smells-like-garlic" }
+    {
+        titulo: "Valcour Theater",
+        Creadores: "Biel Aparicio Torné, Judith Codina Menea, Laia Tuyà Penas, Levi Barahona Huete, Nathan Collado Brun, Xavier Ferré Contreras",
+        desc: "You have been hired to prepare a stage in a theater that has been closed for years. No one comes anymore, but the work must be done.",
+        descCompleta: "You have been hired to prepare a stage in a theater that has been closed for years. No one comes anymore, but the work must be done.\n\nYour task is to complete a series of stage-preparation duties to get the play ready. Move props, arrange the space, and finish what was left unfinished.\n\nThe Valcour Theater was abandoned after its last performance, when the lead actor disappeared in front of the audience. Since then, something lingers backstage.\n\nYou wear a mask that doesn't belong to you. Some things only exist while you're wearing it. And something in this theater doesn't want the play to be ready.\n\nControls:\n• WASD - Move\n• SPACE - Use mask\n• L_SHIFT - Run\n• E - Interact with crank\n• Q - Show/Hide instructions\n• R - Engine Skillcheck",
+        tags: ["3D", "First-Person", "Puzzle"],
+        plataformas: ["MS Windows"],
+        herramientas: ["Unity"],
+        idiomas: ["English"],
+        diversificadores: [],
+        img: "img/ValcourTheater.png",
+        url: "https://storage-v4.globalgamejam.org/files/games/2026/790665/exec/Valcour%20Theater%20v1.0.zip?VersionId=wmH_HrZFiCSQrLtziiivTAsjTFMsKkGE",
+        video: "",
+        recursos: "https://storage-v4.globalgamejam.org/files/games/2026/790665/src/GameJam2026%20-%20copia.zip?VersionId=E9OyQVm_ekvmE5p1vKQVmG4sDfDPV7OH"
+    },
+    {
+        titulo: "My waifu wants to be a cosplayer",
+        Creadores: "@marilolifc01, Cloudess, Edalint, THEBOSS, saturnoV18, The_Martina",
+        desc: "A pet simulator mixed with incremental gameplay. Create mask combos to earn points, unlock gacha rewards, and buy amazing cosplays for your waifu!",
+        descCompleta: "A pet simulator mixed with incremental gameplay. Create mask combos to earn points, unlock gacha rewards, and buy amazing cosplays for your waifu!\n\nUpgrade your dropper, enhance your masks, and collect the rarest outfits! ✨",
+        tags: ["Casual", "Simulation"],
+        plataformas: ["Android"],
+        herramientas: [],
+        idiomas: ["English"],
+        diversificadores: [],
+        img: "",
+        url: "https://the-martina.itch.io/my-waifu-wants-to-be-a-cosplayer",
+        video: "",
+        recursos: ""
+    },
+    {
+        titulo: "Atu's Greed",
+        Creadores: "Heyloler, Jowi, emmabrull, Maxnes, bdragon, Boqueron113, radial, Sh0gun3",
+        desc: "Cast down after a failed coup, Atu is defeated and exiled for attempting to assassinate the leader of his own brotherhood.",
+        descCompleta: "Cast down after a failed coup, Atu is defeated and exiled for attempting to assassinate the leader of his own brotherhood. Branded a traitor by those who once shared his faith, he is discarded into the Pit of the Mangy—left for dead among the forsaken.\n\nBut death is not what awaits him.\n\nAt the bottom of the abyss, Atu faces a brutal choice: surrender to oblivion, or rise again and seize the power he always believed was his destiny. To ascend as the dark ruler he sees in his dreams, he must rebuild himself from the ashes of his downfall—guided by an unexpected mentor who will challenge everything he thought he knew.",
+        tags: ["2D", "Third-Person", "Top-Down"],
+        plataformas: ["MS Windows"],
+        herramientas: ["Unity"],
+        idiomas: ["English"],
+        diversificadores: [],
+        img: "img/AtusGreed.jpg",
+        url: "https://storage-v4.globalgamejam.org/files/games/2026/859409/exec/atu's%20greed.zip?VersionId=wL2RQjwngmoj6Rx1X4.rOQUac4qO7eQd",
+        video: "",
+        recursos: ""
+    },
+    {
+        titulo: "Xibalbá: A journey to reincarnation",
+        Creadores: "Criado, JoelGüell, Mixel, brunasca",
+        desc: "Un viaje a la reencarnación donde un niño tiene que pasar por todas las casas de Xibalbá para poder renacer.",
+        descCompleta: "Un viaje a la reencarnación donde un niño tiene que pasar por todas las casas de Xibalbá para poder renacer.",
+        tags: [],
+        plataformas: [],
+        herramientas: [],
+        idiomas: [],
+        diversificadores: [],
+        img: "",
+        url: "https://globalgamejam.org/games/2026/xibalba-journey-reincarnation-0",
+        video: "",
+        recursos: ""
+    },
+    {
+        titulo: "Maskacre",
+        Creadores: "erinss, Aniol123, aidu_",
+        desc: "En los lujosos bailes de máscaras del siglo XVI, nadie muestra su verdadero rostro… y uno de los invitados es un asesino.",
+        descCompleta: "En los lujosos bailes de máscaras del siglo XVI, nadie muestra su verdadero rostro... y uno de los invitados es un asesino.\n\nA medianoche, las luces se apagan y, en la oscuridad, alguien empuña un arma blanca. Solo tienes unos segundos para observar y recordar quién era antes de que todo quede a oscuras.\n\nCuando la luz vuelve, los invitados están mezclados, el cuchillo ha desaparecido y todos parecen inocentes. No te equivoques señalando al culpable... o volverá a actuar.",
+        tags: ["2D", "Point-and-Click", "Strategy"],
+        plataformas: ["MS Windows"],
+        herramientas: ["Unity"],
+        idiomas: ["Español", "English"],
+        diversificadores: [],
+        img: "img/Maskacre.png",
+        url: "https://storage-v4.globalgamejam.org/files/games/2026/741702/exec/Maskacre.zip?VersionId=HDC2Y9pSPNWN_BHJSg.TQ8_UpKV1.tvP",
+        video: "https://youtu.be/HS4-ANi9b6Y",
+        recursos: "https://storage-v4.globalgamejam.org/files/games/2026/741702/src/Maskacre_resources.7z?VersionId=hPQZaaTZW901AkHTaVqsvesD3icIqfNp"
+    },
+    {
+        titulo: "One Mask Smells Like Garlic",
+        Creadores: "Antonio Polanc…, juaninside, DMON",
+        desc: "You play as a vampire trying to escape from party alive while blending in behind different masks. Somewhere among the gests hides a vampire hunter, disguised like everyone else, waiting for the perfect moment to strike.",
+        descCompleta: "You play as a vampire trying to escape from party alive while blending in behind different masks. Somewhere among the gests hides a vampire hunter, disguised like everyone else, waiting for the perfect moment to strike.",
+        tags: [],
+        plataformas: [],
+        herramientas: [],
+        idiomas: [],
+        diversificadores: [],
+        img: "img/OneMaskSmellsLikeGarlic.png",
+        url: "https://twinstudiosoficial.itch.io/one-mask-smells-like-garlic",
+        video: "",
+        recursos: ""
+    }
 ];
