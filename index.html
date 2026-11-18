@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,1,0&icon_names=home,location_on,info_i,casino,folder" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="logopedorro.webp">
+        <title>Global Game Jam Neàpolis</title>
+    </head>
+    <body>
+        <header>
+            <div class="header-top">
+                <div class="marca">
+                    <h1>Global Game Jam</h1>
+                    <sub>Neàpolis</sub>
+                </div>
+                <div class="idiomas" role="group" aria-label="Selector de idioma">
+                    <button data-lang="es" class="activo">Castellano</button>
+                    <button data-lang="ca">Català</button>
+                    <button data-lang="en">English</button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- INICIO: cuenta atrás -->
+            <section class="sec" data-sec="home">
+                <p id="contador"></p>
+                <a class="apuntate" href="https://mail.google.com/mail/?view=cm&fs=1&to=ggj@emaid.cat&su=Inscripci%C3%B3n%20Global%20Game%20Jam%20Ne%C3%A0polis" target="_blank" rel="noopener" data-i18n="apuntate">¡Apúntate!</a>
+            </section>
+
+            <!-- INFORMACIÓN: texto en 3 idiomas + ficha del evento -->
+            <section class="sec" data-sec="info" hidden>
+                <h2 class="seccion" data-i18n="sec_info">Información</h2>
+                <div class="contenido">
+                    <div class="texto">
+                        <div class="idioma" data-lang="es">
+                            <p>La Jam tendrá lugar desde el viernes 30 de enero a las 12:00 hasta el domingo 01 de febrero a las 19:00.</p>
+                            <p>La capacidad de la sede está limitada a 40 personas. Si alguien no puede asistir, le pedimos que lo comunique por correo electrónico para que no se tenga en cuenta en el recuento. Una vez alcanzada la capacidad, la opción de inscripción presencial en el lugar se cerrará.</p>
+                            <p>No se permite la entrada ni el consumo de bebidas alcohólicas ni fumar dentro del lugar en ningún momento.</p>
+                            <p>Los participantes deben firmar un formulario aceptando el código de conducta y seguir las instrucciones de los miembros de la organización cuando sea necesario, incluyendo la concesión de derechos de imagen y el tratamiento de datos personales con fines informativos.</p>
+                            <p>Cada participante debe llevar el equipo de conectividad necesario para su equipo, como cables de red, tarjetas Wi-Fi, regletas de corriente, etc.</p>
+                            <p>Un comportamiento inapropiado hacia otros participantes o miembros de la organización resultará en la expulsión inmediata del evento.</p>
+                            <p>Correo electrónico de contacto: <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ggj@emaid.cat&su=Inscripci%C3%B3n%20Global%20Game%20Jam%20Ne%C3%A0polis">ggj@emaid.cat</a></p>
+                        </div>
+                        <div class="idioma" data-lang="ca" hidden>
+                            <p>La Jam tindrà lloc des del divendres 30 de gener a les 12:00 fins al diumenge 01 de febrer a les 19:00.</p>
+                            <p>La capacitat de la seu està limitada a 40 persones. Si algú no pot assistir, li preguem que ho comuniqui per correu electrònic perquè no es tingui en compte al recompte. Un cop assolida la capacitat, l'opció d'inscripció presencial al lloc es tancarà.</p>
+                            <p>No es permet l'entrada ni el consum de begudes alcohòliques ni fumar dins del lloc en cap moment.</p>
+                            <p>Els participants han de signar un formulari acceptant el codi de conducta i seguir les instruccions dels membres de l'organització quan sigui necessari, incloent-hi l'atorgament dels drets d'imatge i el tractament de dades personals per a fins informatius.</p>
+                            <p>Cada participant ha de portar l'equipament de connectivitat necessari per al seu equip, com ara cables de xarxa, targetes wi-fi, regletes de corrent, etc.</p>
+                            <p>Un comportament inadequat cap als altres participants o membres de l'organització resultarà en l'expulsió immediata de l'esdeveniment.</p>
+                            <p>Correu electrònic de contacte: <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ggj@emaid.cat&su=Inscripci%C3%B3n%20Global%20Game%20Jam%20Ne%C3%A0polis">ggj@emaid.cat</a></p>
+                        </div>
+                        <div class="idioma" data-lang="en" hidden>
+                            <p>The Jam will take place from Friday, January 30, at 12:00 PM until Sunday, February 01, at 7:00 PM.</p>
+                            <p>The venue's capacity is limited to 40 people. If someone is unable to attend, we kindly ask them to communicate it via email so that it is not considered in the headcount. Once the capacity is reached, the registration option at the venue will be closed.</p>
+                            <p>Entry and consumption of alcoholic beverages and smoking are not allowed inside the venue at any time.</p>
+                            <p>Participants must sign a form accepting the code of conduct and follow the instructions of the organization members when required, including granting image rights and treating personal data for informational purposes.</p>
+                            <p>Each participant must bring the necessary connectivity equipment for their team, such as network cables, wi-fi cards, power strips, etc.</p>
+                            <p>Inappropriate behavior towards other participants or organization members will result in immediate expulsion from the event.</p>
+                            <p>Contact e-mail: <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ggj@emaid.cat&su=Inscripci%C3%B3n%20Global%20Game%20Jam%20Ne%C3%A0polis">ggj@emaid.cat</a></p>
+                        </div>
+                    </div>
+                    <aside class="ficha">
+                        <h3 data-i18n="datos_evento">Datos del evento</h3>
+                        <dl class="datos">
+                            <div><dt data-i18n="dt_inicio">Inicio</dt><dd data-i18n="dd_inicio">30 de enero de 2027 · 12:00</dd></div>
+                            <div><dt data-i18n="dt_fin">Fin</dt><dd data-i18n="dd_fin">1 de febrero de 2027 · 19:00</dd></div>
+                            <div><dt data-i18n="dt_idiomas">Idiomas</dt><dd>Español, Català, English</dd></div>
+                            <div><dt data-i18n="dt_edad">Edad</dt><dd data-i18n="dd_edad">Solo mayores de 18 años</dd></div>
+                            <div><dt data-i18n="dt_entrada">Entrada</dt><dd>5 €</dd></div>
+                            <div><dt data-i18n="dt_aforo">Aforo</dt><dd data-i18n="dd_aforo">Entre 40 y 60 personas</dd></div>
+                            <div><dt data-i18n="dt_horario">Horario</dt><dd data-i18n="dd_horario">Abierto durante las 48 horas</dd></div>
+                            <div><dt data-i18n="dt_quien">Quién puede participar</dt><dd data-i18n="dd_quien">Cualquier persona</dd></div>
+                        </dl>
+                    </aside>
+                </div>
+                <section class="ficha instalaciones">
+                    <h3 data-i18n="instalaciones">Instalaciones</h3>
+                    <ul class="servicios">
+                        <li><i class="fa-solid fa-door-closed" aria-hidden="true"></i><div><b data-i18n="inst_1">Seguridad 24 h</b></div></li>
+                        <li><i class="fa-solid fa-bus" aria-hidden="true"></i><div><b data-i18n="inst_2">Transporte público accesible</b></div></li>
+                        <li><i class="fa-solid fa-beer-mug-empty" aria-hidden="true"></i><div><b data-i18n="inst_3">Espacio sin alcohol</b></div></li>
+                        <li><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i><div><b data-i18n="inst_4">Auditorio</b></div></li>
+                        <li><i class="fa-solid fa-ban-smoking" aria-hidden="true"></i><div><b data-i18n="inst_5">Totalmente sin humo</b></div></li>
+                        <li><i class="fa-solid fa-mug-saucer" aria-hidden="true"></i><div><b data-i18n="inst_6">Bebidas y aperitivos</b></div></li>
+                        <li><i class="fa-solid fa-pizza-slice" aria-hidden="true"></i><div><b data-i18n="inst_7">Comida en las cercanías</b><small data-i18n="inst_7_sub">Café, bebidas y/o comida a poca distancia</small></div></li>
+                        <li><i class="fa-solid fa-transgender" aria-hidden="true"></i><div><b data-i18n="inst_8">Baños de género neutro</b></div></li>
+                        <li><i class="fa-solid fa-leaf" aria-hidden="true"></i><div><b data-i18n="inst_9">Opciones de comida sin gluten</b></div></li>
+                        <li><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i><div><b data-i18n="inst_10">Mentores</b></div></li>
+                        <li><i class="fa-solid fa-gamepad" aria-hidden="true"></i><div><b data-i18n="inst_11">Admite juegos de hardware / mandos alternativos</b></div></li>
+                        <li><i class="fa-solid fa-wheelchair-move" aria-hidden="true"></i><div><b data-i18n="inst_12">Accesible en silla de ruedas</b><small data-i18n="inst_12_sub">Con baños accesibles</small></div></li>
+                    </ul>
+                </section>
+            </section>
+
+            <!-- UBICACIÓN: mapa y texto -->
+            <section class="sec" data-sec="location" hidden>
+                <h2 class="seccion" data-i18n="sec_ubicacion">Ubicación</h2>
+                <div class="contenido">
+                    <div class="mapa">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2774.301632367166!2d1.730799011325699!3d41.22319297120156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a386e0cc704b27%3A0xb7298375c86b6e22!2zTmXDoHBvbGlz!5e1!3m2!1ses!2ses!4v1791964427324!5m2!1ses!2ses" title="Mapa de Neàpolis" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </div>
+                    <aside class="ficha">
+                        <h3 data-i18n="donde_es">Dónde es</h3>
+                        <dl class="datos">
+                            <div><dt data-i18n="dt_edificio">Edificio y sala</dt><dd>Neàpolis</dd></div>
+                            <div><dt data-i18n="dt_direccion">Dirección</dt><dd>Rambla de l'Exposició, 59<br>08800 Vilanova i la Geltrú, Barcelona<br><span data-i18n="pais">España</span></dd></div>
+                            <div><dt data-i18n="dt_tipo_sede">Tipo de sede</dt><dd data-i18n="dd_tipo_sede">Solo presencial</dd></div>
+                            <div><dt data-i18n="dt_anio">Año</dt><dd>2027</dd></div>
+                            <div><dt data-i18n="dt_publico">Público de la sede</dt><dd>GGJ</dd></div>
+                        </dl>
+                    </aside>
+                </div>
+            </section>
+
+            <!-- ALEATORIO: generador de temas + temporizador de 3 horas -->
+            <section class="sec" data-sec="random" hidden>
+                <div class="row">
+                    <div class="star" aria-hidden="true"><svg viewBox="0 0 100 100"><polygon points="50,4 93,78 7,78"/><polygon points="50,96 7,22 93,22"/></svg></div>
+                    <div class="tema-box">
+                        <div class="tema-label" data-i18n="tema_randomizado">TEMA RANDOMIZADO</div>
+                        <div id="tema"></div>
+                    </div>
+                </div>
+                <div id="time">03:00:00</div>
+                <div class="restante" data-i18n="tiempo_restante">Tiempo restante</div>
+                <div class="bar"><div id="fill"></div></div>
+                <div class="info" id="fechas"></div>
+                <div class="btns">
+                    <button id="gen" data-i18n="btn_generar">Generar tema</button>
+                    <button id="copiar" data-i18n="btn_copiar">Copiar</button>
+                    <button id="reset" data-i18n="btn_reiniciar">Reiniciar</button>
+                </div>
+            </section>
+
+            <!-- ARCHIVO: juegos -->
+            <section class="sec" data-sec="archive" hidden>
+                <h2 class="seccion" data-i18n="sec_juegos">Juegos</h2>
+                <form class="filtros" id="filtros" autocomplete="off">
+                    <label class="campo"><span data-i18n="lbl_titulo">Título</span><input type="text" id="f-titulo" data-i18n-placeholder="ph_titulo" placeholder="Buscar por título"></label>
+                    <label class="campo"><span>Game Diversifiers</span><select id="f-div"></select></label>
+                    <label class="campo"><span data-i18n="lbl_etiquetas">Etiquetas</span><select id="f-tags"></select></label>
+                    <label class="campo"><span data-i18n="lbl_plataformas">Plataformas</span><select id="f-plataformas"></select></label>
+                    <label class="campo"><span data-i18n="lbl_herramientas">Herramientas y tecnologías</span><select id="f-herramientas"></select></label>
+                    <div class="acciones">
+                        <button type="submit" class="aplicar" data-i18n="btn_aplicar">Aplicar</button>
+                        <button type="reset" class="limpiar" data-i18n="btn_limpiar">Limpiar</button>
+                    </div>
+                </form>
+                <p class="resultados" id="resultados" aria-live="polite"></p>
+                <div class="juegos" id="juegos"></div>
+            </section>
+        </main>
+
+        <!-- Barra de iconos -->
+        <div class="botones">
+            <button data-sec="info" data-i18n-title="sec_info" title="Información" aria-label="Información"><span class="material-symbols-sharp">info_i</span></button>
+            <button data-sec="location" data-i18n-title="sec_ubicacion" title="Ubicación" aria-label="Ubicación"><span class="material-symbols-sharp">location_on</span></button>
+            <button data-sec="home" data-i18n-title="nav_inicio" title="Inicio" aria-label="Inicio"><span class="material-symbols-sharp">home</span></button>
+            <button data-sec="random" data-i18n-title="nav_generador" title="Generador de temas" aria-label="Generador de temas"><span class="material-symbols-sharp">casino</span></button>
+            <button data-sec="archive" data-i18n-title="sec_juegos" title="Juegos" aria-label="Juegos"><span class="material-symbols-sharp">folder</span></button>
+        </div>
+
+        <script src="datos.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
