@@ -433,3 +433,94 @@ document.addEventListener("visibilitychange", pintar);
 /* ===== ARRANQUE ===== */
 ponerIdioma(idiomaActual);
 mostrar();
+
+// --- Alarma y Audio de 20 segundos ---
+const audio20s = new Audio("img/alerta20s.mp3"); // <-- Cambia "alerta20s.mp3" si tu archivo se llama distinto
+
+function prepararAviso() {
+    try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === "suspended") audioCtx.resume();
+    } catch (e) {}
+    try { if ("Notification" in window && Notification.permission === "default") Notification.requestPermission(); } catch (e) {}
+}
+
+function sonar() {
+    try {
+        if (!audioCtx) return;
+        for (let i = 0; i < 4; i++) {
+            const o = audioCtx.createOscillator(), g = audioCtx.createGain();
+            o.frequency.value = 880; o.connect(g); g.connect(audioCtx.destination);
+            const tAudio = audioCtx.currentTime + i * 0.6;
+            g.gain.setValueAtTime(0.0001, tAudio);
+            g.gain.exponentialRampToValueAtTime(0.4, tAudio + 0.05);
+            g.gain.exponentialRampToValueAtTime(0.0001, tAudio + 0.5);
+            o.start(tAudio); o.stop(tAudio + 0.55);
+        }
+    } catch (e) {}
+}
+
+function avisar20Segundos() {
+    if (!estado || estado.avisado20s) return;
+    estado.avisado20s = true;
+    guardar();
+    try {
+        audio20s.currentTime = 0;
+        audio20s.play();
+    } catch (e) {}
+}
+
+function avisar() {
+    if (!estado || estado.avisado) return;
+    estado.avisado = true; guardar(); sonar();
+    try {
+        if ("Notification" in window && Notification.permission === "granted")
+            new Notification(t("tiempo_terminado"), { body: t("tiempo_terminado_body") });
+    } catch (e) {}
+}
+
+// --- Temporizador ---
+function iniciar() {
+    const ahora = Date.now();
+    estado = { inicio: ahora, fin: ahora + DURACION, avisado: false, avisado20s: false };
+    prepararAviso(); guardar(); pintar();
+}
+
+function reiniciar() {
+    estado = null;
+    try {
+        audio20s.pause();
+        audio20s.currentTime = 0;
+    } catch (e) {}
+    guardar(); pintar();
+}
+
+function pintar() {
+    const timeEl = $("time"), fechas = $("fechas");
+    if (!estado) {
+        timeEl.textContent = "03:00:00"; timeEl.classList.remove("done");
+        $("fill").style.width = "0%";
+        fechas.textContent = t("fechas_vacio");
+        document.title = "Global Game Jam Neàpolis";
+        return;
+    }
+    const resta = Math.max(0, estado.fin - Date.now()), s = Math.ceil(resta / 1000);
+    timeEl.textContent = pad(Math.floor(s / 3600)) + ":" + pad(Math.floor(s % 3600 / 60)) + ":" + pad(s % 60);
+    $("fill").style.width = (100 - resta / DURACION * 100) + "%";
+    fechas.innerHTML = t("fechas_inicio") + ": <b>" + fmt(estado.inicio) + "</b><br>" + t("fechas_fin") + ": <b>" + fmt(estado.fin) + "</b>";
+
+    // Disparar audio de la carpeta img/ al llegar a 20 segundos
+    if (s <= 20 && s > 0) {
+        avisar20Segundos();
+    }
+
+    if (resta === 0) {
+        timeEl.classList.add("done");
+        document.title = t("tiempo_terminado");
+        fechas.innerHTML += "<br><b>" + t("tiempo_terminado_body") + "</b>";
+        avisar();
+    } else {
+        timeEl.classList.remove("done");
+        document.title = timeEl.textContent + " · Game Jam";
+    }
+}
