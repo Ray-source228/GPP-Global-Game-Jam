@@ -118,7 +118,8 @@ const TRADUCCIONES = {
         video: "Video",
         recursos: "Recursos",
         mostrando: (n, total) => `Mostrando ${n} de ${total} juegos`,
-        sin_resultados: "Ningún juego coincide con la búsqueda."
+        sin_resultados: "Ningún juego coincide con la búsqueda.",
+        patrocinadores: "Organizan y patrocinan"
     },
     ca: {
         locale: "ca-ES",
@@ -194,7 +195,8 @@ const TRADUCCIONES = {
         video: "Vídeo",
         recursos: "Recursos",
         mostrando: (n, total) => `Mostrant ${n} de ${total} jocs`,
-        sin_resultados: "Cap joc coincideix amb la cerca."
+        sin_resultados: "Cap joc coincideix amb la cerca.",
+        patrocinadores: "Organitzen i patrocinen"
     },
     en: {
         locale: "en-GB",
@@ -270,7 +272,8 @@ const TRADUCCIONES = {
         video: "Video",
         recursos: "Resources",
         mostrando: (n, total) => `Showing ${n} of ${total} games`,
-        sin_resultados: "No games match your search."
+        sin_resultados: "No games match your search.",
+        patrocinadores: "Organized & sponsored by"
     }
 };
 
